@@ -17,8 +17,7 @@ import roboguice.inject.InjectView;
 
 public class MainActivity extends RoboActivity {
 
-    @InjectView(R.id.hallo_world_text_view)
-    TextView mHalloWorldTextView;
+    @InjectView(R.id.hallo_world_text_view) TextView mHalloWorldTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

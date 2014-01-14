@@ -43,7 +43,7 @@ android {
         }
     }
 
-    productFlavors {
+/*    productFlavors {
         playstore {
             packageName='eu.saramak.rxandroidapp'
         }
@@ -51,6 +51,7 @@ android {
             packageName='eu.saramak.rxandroidapp.amazonappstore'
         }
     }
+    */
     sourceSets {
         instrumentTest.setRoot('src/test')
     }
