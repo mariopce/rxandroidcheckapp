@@ -1,16 +1,14 @@
 package eu.saramak.rxandroidapp;
-import eu.saramak.rxandroidapp.fast.test.RobolectricGuiceTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-
-import javax.inject.Inject;
+import org.robolectric.RobolectricTestRunner;
 
 import static org.fest.assertions.api.ANDROID.assertThat;
 
 
-@RunWith(RobolectricGuiceTestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 public class MainActivityTest {
 
 
