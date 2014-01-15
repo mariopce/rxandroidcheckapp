@@ -11,25 +11,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.TextView;
+import roboguice.RoboGuice;
 import roboguice.activity.RoboActivity;
+import roboguice.activity.RoboFragmentActivity;
+import roboguice.fragment.RoboFragment;
 import roboguice.inject.InjectView;
 
 
-public class MainActivity extends RoboActivity {
+public class MainActivity extends RoboFragmentActivity {
 
-    @InjectView(R.id.hallo_world_text_view) TextView mHalloWorldTextView;
-
+    public DummyFragment mDummyFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        mDummyFragment = new DummyFragment();
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new DummyFragment())
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, mDummyFragment)
                     .commit();
         }
-        mHalloWorldTextView.setText("Test 123");
     }
 
 
@@ -57,16 +58,21 @@ public class MainActivity extends RoboActivity {
     /**
      * A dummy fragment containing a simple view.
      */
-    public static class DummyFragment extends Fragment {
+    public static class DummyFragment extends RoboFragment {
 
-        public DummyFragment() {
-        }
+
+        @InjectView(R.id.hallo_world_text_view) TextView mHalloWorldTextView;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
+        }
+
+        public void onViewCreated(View view, Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            mHalloWorldTextView.setText("Test 123");
         }
     }
 

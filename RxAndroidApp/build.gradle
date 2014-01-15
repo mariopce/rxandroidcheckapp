@@ -68,7 +68,7 @@ idea {
 
 dependencies {
 
-    //# to już nie compile group: 'com.google.android', name: 'support-v4', version: 'r7'
+    compile group: 'com.google.android', name: 'support-v4', version: 'r7'
     compile 'org.roboguice:roboguice:3.0b-experimental'
     compile 'com.netflix.rxjava:rxjava-android:0.15.1'
     compile 'com.google.guava:guava:15.0'

@@ -20,8 +20,8 @@ public class MainActivityTest {
 
     @Test
     public void shouldNotFail() {
-        final MainActivity mainActivity = Robolectric.buildActivity(MainActivity.class).create().get();
+        final MainActivity mainActivity = Robolectric.buildActivity(MainActivity.class).create().resume().get();
         assertThat(mainActivity).isNotNull();
-        assertThat(mainActivity.mHalloWorldTextView).isNotNull();
+        assertThat(mainActivity.mDummyFragment.mHalloWorldTextView).isNotNull();
     }
 }
