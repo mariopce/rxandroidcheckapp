@@ -17,15 +17,17 @@ import roboguice.activity.RoboFragmentActivity;
 import roboguice.fragment.RoboFragment;
 import roboguice.inject.InjectView;
 
+import javax.inject.Inject;
+
 
 public class MainActivity extends RoboFragmentActivity {
 
-    public DummyFragment mDummyFragment;
+    @Inject DummyFragment mDummyFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mDummyFragment = new DummyFragment();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, mDummyFragment)
